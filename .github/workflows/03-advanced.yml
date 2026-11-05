@@ -61,7 +61,7 @@ jobs:
           printf '### Release\nImage: `%s`\nCommit: `%s`\n' "$DIGEST" "$GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
   deploy:
     needs: release
-    if: vars.ENABLE_DEPLOY == 'true'
+    if: vars.ENABLE_DEPLOY == 'false'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     environment: production
