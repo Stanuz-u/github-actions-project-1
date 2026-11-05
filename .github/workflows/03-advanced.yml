@@ -47,6 +47,11 @@ jobs:
           severity: HIGH,CRITICAL
           exit-code: '1'
           ignore-unfixed: false
+
+      - name: Remove Trivy Envs file
+        if: always()
+        run: rm -f trivy_envs.txt
+     
       - name: Authenticate to GHCR
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
